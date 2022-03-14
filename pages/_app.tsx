@@ -1,24 +1,20 @@
-import type { ReactElement } from "react";
-import type { NextPage } from "next";
 import type { AppProps } from "next/app";
-import { ChakraProvider } from "@chakra-ui/react";
+import { Box, ChakraProvider } from "@chakra-ui/react";
 import "@fontsource/cairo";
 import theme from "../theme";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
-type NextPageWithLayout = NextPage & {
-  getLayout?: (page: ReactElement) => ReactElement;
-};
-
-type AppPropsWithLayout = AppProps & {
-  Component: NextPageWithLayout;
-};
-
-function MyApp({ Component, pageProps }: AppPropsWithLayout) {
-  const getLayout = Component.getLayout ?? ((page) => page);
-
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
-      {getLayout(<Component {...pageProps} />)}
+      <Box mt={5} maxW="2xl" mx="auto">
+        <Header />
+        <Box mb={16} mt={16} ml={3}>
+          <Component {...pageProps} />
+        </Box>
+        <Footer />
+      </Box>
     </ChakraProvider>
   );
 }

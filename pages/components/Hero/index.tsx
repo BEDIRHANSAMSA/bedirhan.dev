@@ -16,7 +16,7 @@ export default function Hero() {
       </Flex>
       <Spacer />
       <Flex justifyContent="center">
-        <Image src="logo.svg" w={28} h={28} borderRadius="full"></Image>
+        <Image alt="Logo" src="logo.svg" w={28} h={28} borderRadius="full" />
       </Flex>
     </Flex>
   );

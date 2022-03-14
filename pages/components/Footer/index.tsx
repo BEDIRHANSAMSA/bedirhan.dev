@@ -20,7 +20,7 @@ export default function Footer() {
           </Text>
           <Text>
             Copyright ©{" "}
-            <NextLink href="/">
+            <NextLink passHref href="/">
               <Link>bedirhan.dev</Link>
             </NextLink>{" "}
             {new Date().getFullYear()}

@@ -1,6 +1,5 @@
 import { Box } from "@chakra-ui/react";
 import Hero from "./components/Hero";
-import { getLayout as getLandingLayout } from "./layouts/LandingLayout";
 
 export default function Home() {
   return (
@@ -9,5 +8,3 @@ export default function Home() {
     </Box>
   );
 }
-
-Home.getLayout = getLandingLayout;

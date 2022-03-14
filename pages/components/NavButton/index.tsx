@@ -1,42 +1,21 @@
-import { Button, Flex } from "@chakra-ui/react";
-import { useRouter } from "next/router";
-import Link from "next/link";
+import { Button, Flex, Link } from "@chakra-ui/react";
+import NextLink from "next/link";
 
 export default function NavButton({
   title,
-  href,
-  target,
+  to,
   children,
-  ...props
 }: {
   title: string;
-  href: string;
-  target?: string;
+  to: string;
   children?: any;
 }) {
-  const router = useRouter();
-
   return (
-    <Button
-      fontWeight={router.asPath === href ? "bold" : "normal"}
-      background="transparent"
-      {...props}
-    >
+    <Button background="transparent">
       <Flex gap={2}>
-        <Link href={href}>
-          {target === "_blank" ? (
-            <a
-              style={{
-                textDecoration: "none",
-              }}
-              target={target}
-            >
-              {title}
-            </a>
-          ) : (
-            title
-          )}
-        </Link>
+        <NextLink passHref href={to ?? ""}>
+          <Link>{title}</Link>
+        </NextLink>
         {children}
       </Flex>
     </Button>
