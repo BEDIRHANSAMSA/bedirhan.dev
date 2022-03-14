@@ -13,12 +13,32 @@ export default function Header() {
       title: "Blog",
       to: "/blog",
     },
+    {
+      title: "Projects",
+      to: "/projects",
+    },
+    {
+      title: "Contact",
+      to: "/contact",
+    },
+    {
+      title: "Twitter",
+      to: "https://twitter.com/bedirhansamsa",
+      icon: <BiLinkExternal />,
+    },
+    {
+      title: "Github",
+      to: "https://github.com/BEDIRHANSAMSA",
+      icon: <BiLinkExternal />,
+    },
   ];
 
   return (
     <Flex gap={3}>
       {buttons.map((button, index) => (
-        <NavButton {...button} key={index}></NavButton>
+        <NavButton {...button} key={index}>
+          {button.icon}
+        </NavButton>
       ))}
       <Spacer />
       <ThemeButton />
