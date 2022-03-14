@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <Flex>
       <Flex direction="column" justifyContent="left">
-        <Heading>Hey👋 I'm Bedirhan</Heading>
+        <Heading>Hey👋 I{"'"}m Bedirhan</Heading>
         <Heading mt={2} as="h6" size="xs ">
           Full Stack Developer
         </Heading>
