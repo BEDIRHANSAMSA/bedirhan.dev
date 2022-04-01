@@ -9,7 +9,7 @@ export default function Footer() {
       <Divider />
       <Flex gap={3} direction="column" mt={5}>
         <SpotifyNowPlaying />
-        <DiscordActivity />
+        {/* <DiscordActivity /> */}
         <Box textAlign="center">
           <Text>
             Made with{" "}
