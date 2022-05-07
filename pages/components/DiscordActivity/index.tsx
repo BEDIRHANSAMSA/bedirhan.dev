@@ -3,12 +3,7 @@ import { Box, Button, Flex, Text, useToast } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import DiscordProfile from "./DiscordProfile";
 import { motion, useAnimation } from "framer-motion";
-import { waitForSocketConnection } from "../../../lib/socket";
-import {
-  DISCORD_GATEWAY_AUTH,
-  DISCORD_GATEWAY_GUILD_GET_SPECIFIC_MEMBER,
-  DISCORD_USER_AVATAR,
-} from "../../../lib/discord";
+import io from "socket.io-client";
 
 type UserData = {
   status: string;
@@ -61,17 +56,20 @@ export default function DiscordActivity() {
   };
 
   useEffect(() => {
-    getData((returnData: any) => {
-      if (returnData) {
-        setData(returnData);
-      }
+    const socket = io("wss://salty-temple-10629.herokuapp.com");
+
+    socket.on("discord", (event: any) => {
+      const newData = JSON.parse(event);
+      setData({
+        ...newData,
+      });
     });
   }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setActivity(
-        data.activities[Math.floor(Math.random() * data.activities.length)]
+        data.activities[Math.floor(Math.random() * data.activities?.length)]
       );
     }, 4000);
 
@@ -195,45 +193,6 @@ function getCopyMessage({ copyCount }: { copyCount: number }) {
   }
 
   return { message, duration, status };
-}
-
-function getData(callback: any = () => {}) {
-  const handleMessage = (event: MessageEvent) => {
-    const eventData = JSON.parse(event.data);
-
-    if (eventData.t !== "GUILD_MEMBERS_CHUNK") {
-      return;
-    }
-
-    if (eventData.d.presences.length > 0) {
-      const filter = eventData.d.presences[0].activities.filter(
-        (activity: any) => activity.name != "Custom Status"
-      );
-
-      callback({
-        status: eventData.d.presences[0].status,
-        profileUrl: DISCORD_USER_AVATAR + eventData.d.members[0].user.avatar,
-        activities: filter,
-      });
-    } else {
-      callback({
-        status: "offline",
-        profileUrl: DISCORD_USER_AVATAR + eventData.d.members[0].user.avatar,
-        activities: [],
-      });
-    }
-  };
-
-  const ws = new WebSocket("wss://gateway.discord.gg?v=9&encoding=json");
-
-  ws.onmessage = (event) => {
-    handleMessage(event);
-  };
-
-  waitForSocketConnection(ws, function () {
-    ws.send(JSON.stringify(DISCORD_GATEWAY_AUTH));
-    ws.send(JSON.stringify(DISCORD_GATEWAY_GUILD_GET_SPECIFIC_MEMBER));
-  });
 }
 
 const getRandomTransformOrigin = () => {
