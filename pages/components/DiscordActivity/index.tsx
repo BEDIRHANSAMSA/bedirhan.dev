@@ -27,7 +27,7 @@ export default function DiscordActivity() {
   const controls = useAnimation();
 
   const copyOnClick = () => {
-    navigator.clipboard.writeText("Bedirhaaan Skywalker#6987");
+    navigator.clipboard.writeText("Bedirhan Skywalker#0001");
 
     const { message, status, duration } = getCopyMessage({ copyCount });
 
