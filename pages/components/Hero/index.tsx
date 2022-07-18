@@ -11,7 +11,7 @@ export default function Hero() {
         <Text fontSize={20} mt={5} maxW="xl">
           I{"'"}m creating modern and responsive applications and interested in
           topics such as C#, Computer Technologies, science, sociology. I
-          graduated from Istanbul Medipol University in 2022.
+          graduated from Istanbul Medipol University in 2022 with the 1st rank.
         </Text>
       </Flex>
       <Spacer />
