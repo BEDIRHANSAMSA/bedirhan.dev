@@ -9,6 +9,7 @@ export default function Header() {
       title: "Home",
       to: "/",
     },
+    /*
     {
       title: "Blog",
       to: "/blog",
@@ -21,6 +22,7 @@ export default function Header() {
       title: "Contact",
       to: "/contact",
     },
+    */
     {
       title: "Twitter",
       to: "https://twitter.com/bedirhansamsa",
