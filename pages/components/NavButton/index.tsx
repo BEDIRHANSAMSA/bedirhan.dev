@@ -1,5 +1,5 @@
-import { Button, Flex, Link } from "@chakra-ui/react";
-import NextLink from "next/link";
+import { Button, Flex, Link as ChakraLink } from "@chakra-ui/react";
+import Link from "next/link";
 
 export default function NavButton({
   title,
@@ -13,9 +13,9 @@ export default function NavButton({
   return (
     <Button background="transparent">
       <Flex gap={2}>
-        <NextLink passHref href={to ?? ""}>
-          <Link>{title}</Link>
-        </NextLink>
+        <Link href={to ?? ""} legacyBehavior>
+          <ChakraLink>{title}</ChakraLink>
+        </Link>
         {children}
       </Flex>
     </Button>

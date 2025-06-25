@@ -9,27 +9,31 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@chakra-ui/react": "^1.8.6",
-    "@emotion/react": "^11.8.1",
-    "@emotion/styled": "^11.8.1",
-    "@fontsource/cairo": "^4.5.5",
-    "axios": "^0.26.0",
-    "framer-motion": "^6.2.8",
-    "next": "12.1.0",
-    "qs": "^6.10.3",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-icons": "^4.3.1",
-    "socket.io": "^4.5.0",
-    "socket.io-client": "^4.5.0",
-    "swr": "^1.2.2"
+    "@chakra-ui/icons": "^2.2.4",
+    "@chakra-ui/next-js": "^2.2.0",
+    "@chakra-ui/react": "^2.8.2",
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@fontsource-variable/inter": "^5.0.16",
+    "@fontsource/cairo": "^5.0.8",
+    "axios": "^1.6.5",
+    "framer-motion": "^10.17.9",
+    "next": "14.0.4",
+    "qs": "^6.11.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-icons": "^4.12.0",
+    "socket.io": "^4.7.2",
+    "socket.io-client": "^4.7.2",
+    "swr": "^2.2.4"
   },
   "devDependencies": {
-    "@types/node": "17.0.21",
-    "@types/qs": "^6.9.7",
-    "@types/react": "17.0.39",
-    "eslint": "8.10.0",
-    "eslint-config-next": "12.1.0",
-    "typescript": "4.6.2"
+    "@types/node": "20.10.6",
+    "@types/qs": "^6.9.11",
+    "@types/react": "18.2.46",
+    "@types/react-dom": "18.2.18",
+    "eslint": "8.56.0",
+    "eslint-config-next": "14.0.4",
+    "typescript": "5.3.3"
   }
 }

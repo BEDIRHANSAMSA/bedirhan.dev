@@ -1,20 +1,24 @@
 import type { AppProps } from "next/app";
-import { Box, ChakraProvider } from "@chakra-ui/react";
+import { Box, ChakraProvider, Container } from "@chakra-ui/react";
 import "@fontsource/cairo";
+import "@fontsource-variable/inter";
 import theme from "../theme";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { AnimatePresence } from "framer-motion";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps, router }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
-      <Box mt={5} maxW="2xl" mx="auto">
-        <Header />
-        <Box mb={16} mt={16} ml={3}>
-          <Component {...pageProps} />
-        </Box>
-        <Footer />
-      </Box>
+      <AnimatePresence mode="wait" initial={false}>
+        <Container maxW="5xl" py={8}>
+          <Header />
+          <Box as="main" py={8}>
+            <Component {...pageProps} key={router.route} />
+          </Box>
+          <Footer />
+        </Container>
+      </AnimatePresence>
     </ChakraProvider>
   );
 }
