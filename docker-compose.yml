@@ -1,0 +1,17 @@
+name: bedirhan-frontend
+
+services:
+  bedirhan-frontend:
+    build: .
+    ports:
+      - ":3000"
+    container_name: bedirhan-frontend
+    networks:
+      - traefik
+    restart: unless-stopped
+    volumes:
+      - ./.env:/app/.env:ro
+
+networks:
+  traefik:
+    external: true
