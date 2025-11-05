@@ -59,6 +59,7 @@ export default function Hero() {
                 initial={{ rotateZ: 0 }}
                 animate={{ rotateZ: [0, 20, 0] }}
                 transition={{ duration: 1, repeat: Infinity, repeatDelay: 2 }}
+                // @ts-ignore - Chakra UI type conflict with framer-motion
                 display="inline-block"
               >
                 👋

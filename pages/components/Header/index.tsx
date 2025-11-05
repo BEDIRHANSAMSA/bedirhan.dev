@@ -168,6 +168,7 @@ export default function Header() {
                 mr={1}
                 initial={{ rotate: 0 }}
                 animate={{ rotate: [0, -5, 0, 5, 0] }}
+                // @ts-ignore - Chakra UI type conflict with framer-motion
                 transition={{ repeat: Infinity, repeatDelay: 5, duration: 0.5 }}
               >
                 B
@@ -190,6 +191,7 @@ export default function Header() {
               spacing={6}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
+              // @ts-ignore - Chakra UI type conflict with framer-motion
               transition={{ staggerChildren: 0.1, delayChildren: 0.3 }}
             >
               {navItems.map((navItem, index) => (
@@ -291,6 +293,7 @@ export default function Header() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
+          // @ts-ignore - Chakra UI type conflict with framer-motion
           transition={{ duration: 0.2 }}
         >
           <Stack as="nav" spacing={4}>
